@@ -10,7 +10,6 @@ import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
 public class DouyuEncoder extends MessageToByteEncoder<String> {
 
     protected void encode(ChannelHandlerContext channelHandlerContext, String message, ByteBuf byteBuf) throws Exception {
-        System.out.println("out--"+message);
         Message msg = new Message(message);
         channelHandlerContext.write(new BinaryWebSocketFrame(Unpooled.wrappedBuffer(msg.getBytes())));
     }

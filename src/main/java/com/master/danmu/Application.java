@@ -69,9 +69,9 @@ public class Application {
 
             Channel channel = bootstrap.connect(uri.getHost(), port).sync().channel();
             handler.handshakeFuture().sync();
-            System.out.println("登录房间");
+            System.out.println("login");
             channel.writeAndFlush(String.format(DouYuApi.LOGIN_REQ,"1221923"));
-            System.out.println("加入分组");
+            System.out.println("join_group");
             channel.writeAndFlush(String.format(DouYuApi.JOIN_GROUP,"1221923","-9999"));
             while (true) {
                 //发送心跳
